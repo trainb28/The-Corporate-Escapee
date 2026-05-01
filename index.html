@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Corporate Escapee | Get Busy Living</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700;900&family=Amatic+SC:wght@700&family=Montserrat:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange: #f5812e;
+  --navy: #001244;
+  --dark-navy: #0b1d3c;
+  --olive: #6b7a3e;
+  --cream: #fdf7ee;
+  --cream-dark: #f0e8d5;
+  --cream-darker: #e6d9c0;
+  --text-body: #2a2a2a;
+  --text-muted: #666;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Montserrat', sans-serif; background: var(--cream); color: var(--text-body); overflow-x: hidden; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--navy);
+  padding: 0 2rem; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: box-shadow 0.3s;
+}
+.nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav-brand { display: flex; flex-direction: column; line-height: 1; }
+.nav-brand-name { font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: 14px; color: #fff; letter-spacing: 0.06em; text-transform: uppercase; }
+.nav-brand-tag { font-family: 'Amatic SC', cursive; font-weight: 700; font-size: 18px; color: var(--orange); margin-top: 2px; }
+.nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+.nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover { color: var(--orange); }
+.nav-cta { background: var(--orange) !important; color: #fff !important; padding: 8px 20px; border-radius: 4px; font-weight: 600 !important; }
+
+/* HERO */
+.hero {
+  min-height: 100vh; background: var(--dark-navy);
+  display: flex; align-items: center; padding-top: 64px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 60%, rgba(245,129,46,0.09) 0%, transparent 45%),
+    radial-gradient(circle at 85% 20%, rgba(107,122,62,0.1) 0%, transparent 40%);
+  pointer-events: none;
+}
+.hero-stripe {
+  position: absolute; top: 64px; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--olive) 0 33%, var(--orange) 33% 66%, var(--olive) 66% 100%);
+  opacity: 0.5;
+}
+.hero-inner {
+  position: relative; z-index: 2;
+  max-width: 1100px; margin: 0 auto; padding: 80px 2rem;
+  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center;
+}
+.hero-eyebrow { font-family: 'Amatic SC', cursive; font-weight: 700; font-size: 30px; color: var(--orange); display: block; margin-bottom: 14px; }
+.hero-headline { font-family: 'League Spartan', sans-serif; font-weight: 900; font-size: clamp(2.6rem, 5vw, 4rem); color: #fff; line-height: 0.95; text-transform: uppercase; margin-bottom: 22px; }
+.hero-headline span { color: var(--orange); display: block; }
+.hero-sub { font-size: 17px; color: rgba(255,255,255,0.7); line-height: 1.75; margin-bottom: 36px; max-width: 500px; }
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-block; background: var(--orange); color: #fff;
+  font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: 14px;
+  letter-spacing: 0.06em; text-transform: uppercase; padding: 14px 28px; border-radius: 4px;
+  text-decoration: none; transition: transform 0.15s, opacity 0.15s;
+}
+.btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
+.btn-outline {
+  display: inline-block; background: transparent; color: #fff;
+  font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: 14px;
+  letter-spacing: 0.06em; text-transform: uppercase; padding: 12px 28px; border-radius: 4px;
+  border: 2px solid rgba(255,255,255,0.35); text-decoration: none; transition: border-color 0.2s, color 0.2s;
+}
+.btn-outline:hover { border-color: var(--orange); color: var(--orange); }
+.hero-stats { display: flex; gap: 2.5rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+.hero-stat-num { font-family: 'League Spartan', sans-serif; font-weight: 900; font-size: 2rem; color: var(--orange); display: block; line-height: 1; }
+.hero-stat-label { font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 5px; display: block; }
+
+/* Hero seal */
+.hero-right { display: flex; align-items: center; justify-content: center; }
+.seal-wrap { position: relative; width: 360px; height: 360px; }
+.seal-ring { position: absolute; inset: 0; border-radius: 50%; border: 1.5px solid rgba(245,129,46,0.25); animation: spin 40s linear infinite; }
+.seal-ring-inner { position: absolute; inset: 18px; border-radius: 50%; border: 1px dashed rgba(107,122,62,0.3); }
+@keyframes spin { to { transform: rotate(360deg); } }
+.seal-core {
+  position: absolute; inset: 38px; border-radius: 50%;
+  background: rgba(0,18,68,0.7); border: 2px solid rgba(107,122,62,0.35);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem;
+}
+.seal-emoji { font-size: 64px; line-height: 1; margin-bottom: 10px; }
+.seal-text { font-family: 'League Spartan', sans-serif; font-weight: 900; font-size: 18px; color: #fff; text-transform: uppercase; line-height: 1.1; }
+.seal-tag { font-family: 'Amatic SC', cursive; font-weight: 700; font-size: 22px; color: var(--orange); margin-top: 8px; }
+
+/* PROOF BAR */
+.proof-bar { background: var(--navy); padding: 48px 2rem; border-top: 3px solid var(--orange); border-bottom: 1px solid rgba(255,255,255,0.06); }
+.proof-grid { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem; }
+.proof-stat { text-align: center; }
+.proof-num { font-family: 'League Spartan', sans-serif; font-weight: 900; font-size: 3rem; color: var(--orange); display: block; line-height: 1; }
+.proof-label { font-size: 12px; color: rgba(255,255,255,0.4); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 6px; display: block; }
+
+/* SECTIONS */
+section { padding: 100px 2rem; }
+.container { max-width: 1100px; margin: 0 auto; }
+.section-eyebrow { font-family: 'Amatic SC', cursive; font-weight: 700; font-size: 28px; color: var(--orange); display: block; margin-bottom: 10px; }
+.section-title { font-family: 'League Spartan', sans-serif; font-weight: 900; font-size: clamp(1.9rem, 3.5vw, 2.8rem); color: var(--navy); text-transform: uppercase; line-height: 1; margin-bottom: 20px; }
+.section-title-light { color: #fff; }
+.section-body { font-size: 16px; line-height: 1.8; color: var(--text-muted); max-width: 580px; }
+.divider { width: 54px; height: 4px; background: var(--orange); margin: 18px 0 28px; border-radius: 2px; }
+
+/* MISSION */
+.mission { background: var(--cream); }
+.mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.mission-quote { font-family: 'Amatic SC', cursive; font-weight: 700; font-size: 40px; color: var(--navy); line-height: 1.2; margin-bottom: 20px; }
+.mission-quote span { color: var(--orange); }
+.mission-right { background: var(--dark-navy); border-radius: 8px; padding: 2.5rem; position: relative; overflow: hidden; }
+.mission-right::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--orange); }
+.mission-right-text { font-size: 16px; color: rgba(255,255,255,0.75); line-height: 1.85; margin-bottom: 20px; font-style: italic; }
+.mission-attribution { font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: 12px; color: var(--orange); letter-spacing: 0.08em; text-transform: uppercase; }
+.mission-attribution a { color: var(--orange); }
+
+/* ECOSYSTEM */
+.ecosystem { background: var(--dark-navy); }
+.ecosystem-header { text-align: center; margin-bottom: 56px; }
+.ecosystem-header .section-body { margin: 0 auto; text-align: center; color: rgba(255,255,255,0.55); }
+.eco-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; border-radius: 8px; overflow: hidden; }
+.eco-card {
+  background: rgba(255,255,255,0.03); padding: 2.5rem 2rem;
+  text-decoration: none; display: block; position: relative;
+  transition: background 0.25s; border: 1px solid rgba(255,255,255,0.05);
+}
+.eco-card:hover { background: rgba(255,255,255,0.06); }
+.eco-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+.eco-card.finds::before { background: var(--orange); }
+.eco-card.builds::before { background: var(--olive); }
+.eco-card.deploys::before { background: #4a90c4; }
+.eco-tag { font-family: 'League Spartan', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 14px; display: block; }
+.eco-card.finds .eco-tag { color: var(--orange); }
+.eco-card.builds .eco-tag { color: var(--olive); }
+.eco-card.deploys .eco-tag { color: #4a90c4; }
+.eco-name { font-family: 'League Spartan', sans-serif; font-weight: 900; font-size: 20px; color: #fff; text-transform: uppercase; margin-bottom: 14px; line-height: 1.1; }
+.eco-desc { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.75; margin-bottom: 22px; }
+.eco-cta { font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; }
+.eco-card.finds .eco-cta { color: var(--orange); }
+.eco-card.builds .eco-cta { color: var(--olive); }
+.eco-card.deploys .eco-cta { color: #4a90c4; }
+
+/* NEWSLETTER */
+.newsletter { background: var(--cream); }
+.newsletter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.email-mockup { background: var(--dark-navy); border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.07); }
+.mockup-bar { background: rgba(255,255,255,0.05); padding: 12px 18px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot-r { background: #ff5f57; } .dot-y { background: #febc2e; } .dot-g { background: #28c840; }
+.mockup-subject { font-size: 12px; color: rgba(255,255,255,0.3); margin-left: 8px; }
+.mockup-body { padding: 2rem; }
+.mockup-issue { font-family: 'Amatic SC', cursive; font-weight: 700; font-size: 20px; color: var(--orange); margin-bottom: 10px; }
+.mockup-headline { font-family: 'League Spartan', sans-serif; font-weight: 900; font-size: 18px; color: #fff; text-transform: uppercase; line-height: 1.2; margin-bottom: 20px; }
+.mockup-lines { display: flex; flex-direction: column; gap: 9px; }
+.line { height: 9px; border-radius: 5px; background: rgba(255,255,255,0.08); }
+.line.s { width: 55%; } .line.m { width: 80%; } .line.l { width: 100%; }
+.newsletter-form { display: flex; gap: 10px; margin-top: 28px; }
+.email-input {
+  flex: 1; padding: 13px 16px; border: 2px solid var(--cream-darker); border-radius: 4px;
+  font-family: 'Montserrat', sans-serif; font-size: 15px; background: #fff; color: var(--text-body); outline: none; transition: border-color 0.2s;
+}
+.email-input:focus { border-color: var(--orange); }
+.email-input::placeholder { color: #bbb; }
+.perks { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+.perk { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text-muted); }
+.perk-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }
+
+/* PODCAST */
+.podcast { background: var(--cream-dark); }
+.podcast-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.podcast-player { background: var(--dark-navy); border-radius: 8px; padding: 2rem; border: 1px solid rgba(245,129,46,0.2); }
+.player-label { font-family: 'Amatic SC', cursive; font-weight: 700; font-size: 20px; color: var(--orange); margin-bottom: 10px; }
+.player-title { font-family: 'League Spartan', sans-serif; font-weight: 900; font-size: 18px; color: #fff; text-transform: uppercase; line-height: 1.2; margin-bottom: 18px; }
+.waveform { display: flex; align-items: center; gap: 3px; height: 44px; margin: 16px 0; }
+.bar { width: 4px; border-radius: 2px; animation: pulse 1.4s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { transform: scaleY(1); opacity:0.9; } 50% { transform: scaleY(0.35); opacity:0.5; } }
+.player-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; }
+.player-stat { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
+.player-stat span { color: var(--orange); font-weight: 600; }
+.platforms { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+.platform { padding: 5px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.12); font-size: 12px; color: rgba(255,255,255,0.5); text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+.platform:hover { border-color: var(--orange); color: var(--orange); }
+
+/* COLLECTIVE */
+.collective { background: var(--navy); }
+.collective-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 32px; }
+.pillar { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 6px; padding: 1.25rem; transition: background 0.2s; }
+.pillar:hover { background: rgba(255,255,255,0.07); }
+.pillar-icon { font-size: 20px; margin-bottom: 8px; display: block; }
+.pillar-name { font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: 13px; color: #fff; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+.pillar-desc { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.6; }
+.cta-box { background: var(--cream); border-radius: 8px; padding: 2.5rem; }
+.cta-box-eyebrow { font-family: 'Amatic SC', cursive; font-weight: 700; font-size: 26px; color: var(--orange); text-align: center; display: block; margin-bottom: 8px; }
+.cta-box-title { font-family: 'League Spartan', sans-serif; font-weight: 900; font-size: 22px; color: var(--navy); text-transform: uppercase; text-align: center; margin-bottom: 16px; line-height: 1.1; }
+.cta-box-desc { font-size: 15px; color: var(--text-muted); line-height: 1.7; text-align: center; margin-bottom: 24px; }
+.price-row { text-align: center; margin-bottom: 8px; }
+.price-num { font-family: 'League Spartan', sans-serif; font-weight: 900; font-size: 44px; color: var(--navy); }
+.price-per { font-size: 18px; font-weight: 400; color: var(--text-muted); }
+.price-sub { font-size: 13px; color: var(--text-muted); text-align: center; margin-bottom: 22px; }
+.cta-features { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+.cta-feat { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text-body); }
+.check { width: 18px; height: 18px; border-radius: 50%; background: var(--orange); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #fff; font-size: 10px; font-weight: 800; }
+.cta-note { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 12px; }
+
+/* WHY */
+.why { background: var(--cream); }
+.why-inner { max-width: 780px; margin: 0 auto; text-align: center; }
+.why-quote { font-family: 'Amatic SC', cursive; font-weight: 700; font-size: clamp(2rem, 4.5vw, 3rem); color: var(--navy); line-height: 1.3; margin: 24px 0; }
+.why-quote span { color: var(--orange); }
+.why-body { font-size: 17px; line-height: 1.8; color: var(--text-muted); margin-bottom: 16px; }
+.why-sig { font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: 13px; color: var(--navy); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 28px; }
+
+/* FOOTER */
+footer { background: var(--dark-navy); padding: 60px 2rem 36px; border-top: 3px solid var(--orange); }
+.footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; }
+.footer-brand-name { font-family: 'League Spartan', sans-serif; font-weight: 900; font-size: 18px; color: #fff; text-transform: uppercase; letter-spacing: 0.04em; }
+.footer-brand-tag { font-family: 'Amatic SC', cursive; font-weight: 700; font-size: 22px; color: var(--orange); display: block; margin-top: 2px; }
+.footer-brand-desc { font-size: 13px; color: rgba(255,255,255,0.35); line-height: 1.75; margin-top: 14px; max-width: 230px; }
+.footer-col-title { font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: 11px; color: var(--orange); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+.footer-links a:hover { color: var(--orange); }
+.footer-bottom { max-width: 1100px; margin: 36px auto 0; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.07); display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+.footer-copy a { color: rgba(255,255,255,0.25); text-decoration: none; }
+
+/* ANIMATIONS */
+.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-inner, .mission-grid, .newsletter-grid, .podcast-grid, .collective-grid { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .eco-grid { grid-template-columns: 1fr; }
+  nav .nav-links { display: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#" class="nav-logo">
+    <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="19" cy="28" rx="12" ry="5" fill="#6b7a3e" opacity="0.45"/>
+      <ellipse cx="17" cy="25" rx="9" ry="3.5" fill="#6b7a3e" opacity="0.35"/>
+      <path d="M7 18 C9 9, 22 7, 28 14 C31 17, 30 23, 25 24 C20 25, 13 22, 10 25 C8 26, 6 22, 7 18Z" fill="#fff" opacity="0.9"/>
+      <path d="M25 24 C29 25, 33 22, 34 18 C32 17, 29 20, 25 24Z" fill="#fff" opacity="0.9"/>
+      <circle cx="12" cy="16" r="2" fill="#f5812e"/>
+    </svg>
+    <div class="nav-brand">
+      <span class="nav-brand-name">The Corporate Escapee</span>
+      <span class="nav-brand-tag">Get Busy Living</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#newsletter">Newsletter</a></li>
+    <li><a href="#podcast">Podcast</a></li>
+    <li><a href="#collective">The Collective</a></li>
+    <li><a href="https://escapeeinsider.beehiiv.com/" class="nav-cta" target="_blank">Join Free</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-stripe"></div>
+  <div class="hero-inner">
+    <div>
+      <span class="hero-eyebrow">You didn't burn out. You woke up.</span>
+      <h1 class="hero-headline">Has Corporate <span>Quit on You?</span></h1>
+      <p class="hero-sub">The Corporate Escapee is a movement for mid-career professionals who are done waiting for permission — and ready to build a life they actually want on their own terms.</p>
+      <div class="hero-ctas">
+        <a href="https://escapeeinsider.beehiiv.com/" class="btn-primary" target="_blank">Get the Free Newsletter</a>
+        <a href="https://tr.ee/6dwoKPZ8ZH" class="btn-outline" target="_blank">Listen to the Podcast</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <span class="hero-stat-num">110K+</span>
+          <span class="hero-stat-label">Followers</span>
+        </div>
+        <div>
+          <span class="hero-stat-num">10K+</span>
+          <span class="hero-stat-label">Newsletter Readers</span>
+        </div>
+        <div>
+          <span class="hero-stat-num">Top 2.5%</span>
+          <span class="hero-stat-label">Podcast Globally</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="seal-wrap">
+        <div class="seal-ring">
+          <div class="seal-ring-inner"></div>
+        </div>
+        <div class="seal-core">
+          <div class="seal-emoji">🐬</div>
+          <div class="seal-text">The Corporate<br>Escapee</div>
+          <div class="seal-tag">Get Busy Living ✌️</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="proof-grid">
+    <div class="proof-stat">
+      <span class="proof-num">110K+</span>
+      <span class="proof-label">Community Members</span>
+    </div>
+    <div class="proof-stat">
+      <span class="proof-num">10K+</span>
+      <span class="proof-label">Newsletter Subscribers</span>
+    </div>
+    <div class="proof-stat">
+      <span class="proof-num">Top 2.5%</span>
+      <span class="proof-label">Podcast Globally</span>
+    </div>
+    <div class="proof-stat">
+      <span class="proof-num">6+</span>
+      <span class="proof-label">Years Solo</span>
+    </div>
+  </div>
+</div>
+
+<!-- MISSION -->
+<section class="mission" id="mission">
+  <div class="container">
+    <div class="mission-grid">
+      <div class="fade-up">
+        <span class="section-eyebrow">Our Mission</span>
+        <div class="divider"></div>
+        <div class="mission-quote">Helping <span>1 million</span> ex-corporates take control of their future.</div>
+        <p class="section-body">Good people who were really good at their jobs deserve to win on their own terms. Corporate has changed. The playbook hasn't. We're rewriting it — together.</p>
+      </div>
+      <div class="mission-right fade-up">
+        <p class="mission-right-text">"After 6+ years building my own path and helping hundreds of professionals make the transition, I know this: the biggest barrier isn't money, skills, or even the market. It's believing you can actually do it.<br><br>You can. And you don't have to figure it out alone."</p>
+        <div class="mission-attribution">— Brett Trainor, Founder &nbsp;·&nbsp; <a href="https://www.bretttrainor.com/" target="_blank">bretttrainor.com</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ECOSYSTEM -->
+<section class="ecosystem" id="ecosystem">
+  <div class="container">
+    <div class="ecosystem-header fade-up">
+      <span class="section-eyebrow">The Ecosystem</span>
+      <h2 class="section-title section-title-light">We Find You. Build You. Deploy You.</h2>
+      <p class="section-body">Three interconnected platforms. One mission. You don't have to navigate the escape alone.</p>
+    </div>
+    <div class="eco-grid fade-up">
+      <a href="https://www.thecorporateescapee.co/" target="_blank" class="eco-card finds">
+        <span class="eco-tag">Finds You</span>
+        <div class="eco-name">The Corporate Escapee</div>
+        <p class="eco-desc">The media brand. Weekly newsletter, top 2.5% podcast, and social content designed to show you what's possible — and give you the tools to get there. Where the movement lives.</p>
+        <span class="eco-cta">Explore the movement →</span>
+      </a>
+      <a href="https://www.theescapeecollective.com/" target="_blank" class="eco-card builds">
+        <span class="eco-tag">Builds You</span>
+        <div class="eco-name">The Escapee Collective</div>
+        <p class="eco-desc">The community. Peer groups, accountability, monthly expert sessions, and a curriculum covering all the dimensions of a life-first future. Not going alone — going with your pod.</p>
+        <span class="eco-cta">Join the Collective →</span>
+      </a>
+      <a href="https://www.bretttrainor.com/" target="_blank" class="eco-card deploys">
+        <span class="eco-tag">Deploys You</span>
+        <div class="eco-name">The Small Business Hotline</div>
+        <p class="eco-desc">The economic engine. Connects escapee talent with small businesses who need exactly what you've spent 20 years building. Your corporate skills are your unfair advantage.</p>
+        <span class="eco-cta">See how it works →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter" id="newsletter">
+  <div class="container">
+    <div class="newsletter-grid">
+      <div class="email-mockup fade-up">
+        <div class="mockup-bar">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+          <span class="mockup-subject">📬 Escapee Insider · Every week</span>
+        </div>
+        <div class="mockup-body">
+          <div class="mockup-issue">Escapee Insider</div>
+          <div class="mockup-headline">You're Not Burned Out.<br>You're Just Awake.</div>
+          <div class="mockup-lines">
+            <div class="line l"></div>
+            <div class="line m"></div>
+            <div class="line l"></div>
+            <div class="line s"></div>
+            <div class="line m"></div>
+            <div class="line l"></div>
+            <div class="line m"></div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-up">
+        <span class="section-eyebrow">Escapee Insider</span>
+        <h2 class="section-title">The Weekly Read for People Done Waiting</h2>
+        <div class="divider"></div>
+        <p class="section-body">Real strategies, honest stories, and what's actually working — delivered every week to 10,000+ readers making the move from corporate to life-first business.</p>
+        <div class="newsletter-form">
+          <input type="email" class="email-input" placeholder="your@email.com">
+          <a href="https://escapeeinsider.beehiiv.com/" class="btn-primary" target="_blank">Subscribe Free</a>
+        </div>
+        <div class="perks">
+          <div class="perk"><div class="perk-dot"></div>Weekly: real strategies from real escapees</div>
+          <div class="perk"><div class="perk-dot"></div>Insider access to the Collective and community</div>
+          <div class="perk"><div class="perk-dot"></div>10,000+ readers already aboard</div>
+          <div class="perk"><div class="perk-dot"></div>Free. Always.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PODCAST -->
+<section class="podcast" id="podcast">
+  <div class="container">
+    <div class="podcast-grid">
+      <div class="fade-up">
+        <span class="section-eyebrow">The Podcast</span>
+        <h2 class="section-title">Real Conversations. Real Escapes.</h2>
+        <div class="divider"></div>
+        <p class="section-body">Every week, Brett Trainor talks with escapees, solopreneurs, and experts who've built life-first businesses. No theory — real stories and real tactics from people who've actually made the leap.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:28px;">
+          <a href="https://tr.ee/6dwoKPZ8ZH" class="btn-primary" target="_blank">Listen Now</a>
+          <a href="https://www.youtube.com/@BrettTrainor" class="btn-outline" target="_blank" style="color: var(--text-body); border-color: rgba(0,0,0,0.2);">Watch on YouTube</a>
+        </div>
+        <p style="font-size:13px;color:var(--text-muted);margin-top:14px;">Top 2.5% globally · New episode every week</p>
+      </div>
+      <div class="podcast-player fade-up">
+        <div class="player-label">Now Playing</div>
+        <div class="player-title">From Corporate to Free:<br>The Portfolio Career Playbook</div>
+        <div class="waveform" id="waveform"></div>
+        <div class="player-meta">
+          <span class="player-stat">Top <span>2.5%</span> Global</span>
+          <span class="player-stat"><span>200+</span> Episodes</span>
+          <span class="player-stat"><span>45</span> min</span>
+        </div>
+        <div class="platforms">
+          <a href="https://tr.ee/6dwoKPZ8ZH" class="platform" target="_blank">Apple Podcasts</a>
+          <a href="https://tr.ee/6dwoKPZ8ZH" class="platform" target="_blank">Spotify</a>
+          <a href="https://www.youtube.com/@BrettTrainor" class="platform" target="_blank">YouTube</a>
+          <a href="https://tr.ee/6dwoKPZ8ZH" class="platform" target="_blank">All Platforms</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTIVE -->
+<section class="collective" id="collective">
+  <div class="container">
+    <div class="collective-grid">
+      <div class="fade-up">
+        <span class="section-eyebrow">The Escapee Collective</span>
+        <h2 class="section-title section-title-light">You Shouldn't Have to Figure This Out Alone.</h2>
+        <div class="divider"></div>
+        <p style="font-size:16px;color:rgba(255,255,255,0.6);line-height:1.8;">The Collective is the community for escapees who are serious about building a life-first business. Peers who get it. Accountability that actually works. Education covering everything that matters — not just tactics.</p>
+        <div class="pillars">
+          <div class="pillar">
+            <span class="pillar-icon">🤝</span>
+            <div class="pillar-name">Peer Groups</div>
+            <p class="pillar-desc">Cohorts matched to where you are — Just Starting or Already Scaling.</p>
+          </div>
+          <div class="pillar">
+            <span class="pillar-icon">📚</span>
+            <div class="pillar-name">Education</div>
+            <p class="pillar-desc">Monthly sessions across all 5Fs — the full picture, not just tactics.</p>
+          </div>
+          <div class="pillar">
+            <span class="pillar-icon">🎙️</span>
+            <div class="pillar-name">Guest Sessions</div>
+            <p class="pillar-desc">Monthly experts on what it really takes to build a life-first business.</p>
+          </div>
+          <div class="pillar">
+            <span class="pillar-icon">🐬</span>
+            <div class="pillar-name">Your Pod</div>
+            <p class="pillar-desc">The people who've made the leap and are figuring it out right alongside you.</p>
+          </div>
+        </div>
+      </div>
+      <div class="fade-up">
+        <div class="cta-box">
+          <span class="cta-box-eyebrow">Join the Collective</span>
+          <div class="cta-box-title">Application-Based.<br>Invite Only.</div>
+          <p class="cta-box-desc">This isn't a Facebook group. It's your business community and accountability system, all in one place.</p>
+          <div class="price-row">
+            <span class="price-num">$99</span><span class="price-per">/mo</span>
+          </div>
+          <p class="price-sub">Cancel anytime · No contracts</p>
+          <div class="cta-features">
+            <div class="cta-feat"><div class="check">✓</div>Two peer groups (Just Starting &amp; Scaling)</div>
+            <div class="cta-feat"><div class="check">✓</div>Monthly guest expert sessions</div>
+            <div class="cta-feat"><div class="check">✓</div>Full 5Fs curriculum and resource library</div>
+            <div class="cta-feat"><div class="check">✓</div>Direct access to Brett and the community</div>
+            <div class="cta-feat"><div class="check">✓</div>Private community on Circle</div>
+          </div>
+          <a href="https://www.theescapeecollective.com/" class="btn-primary" style="display:block;text-align:center;width:100%;" target="_blank">Apply to Join</a>
+          <p class="cta-note">Start with the free newsletter — read a few issues — then come back when it clicks.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY THIS EXISTS -->
+<section class="why" id="why">
+  <div class="container">
+    <div class="why-inner fade-up">
+      <span class="section-eyebrow" style="display:block;text-align:center;">Why This Exists</span>
+      <div class="divider" style="margin:12px auto 0;"></div>
+      <div class="why-quote">"I watched my dad give everything to a company that <span>discarded him</span> before he could enjoy it. That's not my story. And it doesn't have to be yours."</div>
+      <p class="why-body">The Corporate Escapee started as a personal mission — to help people build a life they actually want before it's too late. Six years ago, I left corporate without a clear plan. What I discovered was that the skills, relationships, and experience I'd spent 20 years building were worth more on the open market than they ever paid me in a salary.</p>
+      <p class="why-body">The problem was never the talent. It's the belief that there's another way. This community exists to close that gap — one escapee at a time.</p>
+      <div class="why-sig">Brett Trainor · Founder, The Corporate Escapee 🐬✌️</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">The Corporate Escapee</div>
+      <span class="footer-brand-tag">Get Busy Living ✌️</span>
+      <p class="footer-brand-desc">A movement for mid-career professionals done waiting for permission. Find your path to freedom — and the people to walk it with.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Ecosystem</div>
+      <ul class="footer-links">
+        <li><a href="https://www.thecorporateescapee.co/" target="_blank">The Corporate Escapee</a></li>
+        <li><a href="https://www.theescapeecollective.com/" target="_blank">Escapee Collective</a></li>
+        <li><a href="https://www.bretttrainor.com/" target="_blank">Brett Trainor</a></li>
+        <li><a href="https://stan.store/thecorporateescapee" target="_blank">Stan Store</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Content</div>
+      <ul class="footer-links">
+        <li><a href="https://escapeeinsider.beehiiv.com/" target="_blank">Newsletter</a></li>
+        <li><a href="https://tr.ee/6dwoKPZ8ZH" target="_blank">Podcast</a></li>
+        <li><a href="https://www.youtube.com/@BrettTrainor" target="_blank">YouTube</a></li>
+        <li><a href="https://linktr.ee/bretttrainor" target="_blank">All Links</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Connect</div>
+      <ul class="footer-links">
+        <li><a href="https://www.linkedin.com/in/bretttrainor/" target="_blank">LinkedIn (Brett)</a></li>
+        <li><a href="https://www.linkedin.com/company/thecorporateescapeehq/" target="_blank">LinkedIn (TCE)</a></li>
+        <li><a href="https://tiktok.com/@the_corporate_escapee" target="_blank">TikTok</a></li>
+        <li><a href="http://instagram.com/bretttrainor" target="_blank">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 The Corporate Escapee · <a href="mailto:BT@BrettTrainor.com">BT@BrettTrainor.com</a></span>
+    <span style="font-size:20px;">🐬✌️</span>
+  </div>
+</footer>
+
+<script>
+// Waveform
+const wf = document.getElementById('waveform');
+const heights = [60,90,45,100,70,50,85,55,95,65,80,40,75,100,60,45,90,70];
+const colors = ['#f5812e','#6b7a3e','#f5812e','#6b7a3e','#f5812e'];
+heights.forEach((h, i) => {
+  const bar = document.createElement('div');
+  bar.className = 'bar';
+  bar.style.cssText = `height:${h}%;width:4px;border-radius:2px;background:${colors[i%colors.length]};opacity:0.6;animation-delay:${i*0.08}s;`;
+  wf.appendChild(bar);
+});
+
+// Scroll fade-in
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+// Nav shadow on scroll
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  nav.style.boxShadow = window.scrollY > 40 ? '0 2px 24px rgba(0,0,0,0.35)' : 'none';
+});
+</script>
+</body>
+</html>
