@@ -233,6 +233,28 @@ footer { background: var(--dark-navy); padding: 60px 2rem 36px; border-top: 3px 
 .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
 .footer-copy a { color: rgba(255,255,255,0.25); text-decoration: none; }
 
+/* SOCIAL BAR */
+.social-bar { background: var(--cream-dark); padding: 60px 2rem; border-top: 1px solid var(--cream-darker); }
+.social-bar-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+.social-bar-title { font-family: 'Amatic SC', cursive; font-weight: 700; font-size: 32px; color: var(--navy); margin-bottom: 8px; }
+.social-bar-sub { font-size: 15px; color: var(--text-muted); margin-bottom: 36px; }
+.social-icons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.social-icon-link {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  text-decoration: none; transition: transform 0.2s;
+}
+.social-icon-link:hover { transform: translateY(-4px); }
+.social-icon-box {
+  width: 64px; height: 64px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.2s;
+}
+.social-icon-box svg { width: 28px; height: 28px; fill: #fff; }
+.social-icon-box.linkedin { background: #0a66c2; }
+.social-icon-box.tiktok { background: #000; }
+.social-icon-box.youtube { background: #ff0000; }
+.social-icon-label { font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: 12px; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; }
+
 /* ANIMATIONS */
 .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
@@ -279,7 +301,7 @@ footer { background: var(--dark-navy); padding: 60px 2rem 36px; border-top: 3px 
     <div>
       <span class="hero-eyebrow">You didn't burn out. You woke up.</span>
       <h1 class="hero-headline">Has Corporate <span>Quit on You?</span></h1>
-      <p class="hero-sub">The Corporate Escapee is a movement for mid-career professionals who are done waiting for permission — and ready to build a life they actually want on their own terms.</p>
+      <p class="hero-sub">The Corporate Escapee is a movement for ex-corporate professionals who are done waiting for permission — and ready to take control and build a life they actually want.</p>
       <div class="hero-ctas">
         <a href="https://escapeeinsider.beehiiv.com/" class="btn-primary" target="_blank">Get the Free Newsletter</a>
         <a href="https://tr.ee/6dwoKPZ8ZH" class="btn-outline" target="_blank">Listen to the Podcast</a>
@@ -387,7 +409,7 @@ footer { background: var(--dark-navy); padding: 60px 2rem 36px; border-top: 3px 
           <div class="dot dot-r"></div>
           <div class="dot dot-y"></div>
           <div class="dot dot-g"></div>
-          <span class="mockup-subject">📬 Escapee Insider · Every week</span>
+          <span class="mockup-subject"> Escapee Insider · Every week</span>
         </div>
         <div class="mockup-body">
           <div class="mockup-issue">Escapee Insider</div>
@@ -469,22 +491,22 @@ footer { background: var(--dark-navy); padding: 60px 2rem 36px; border-top: 3px 
         <p style="font-size:16px;color:rgba(255,255,255,0.6);line-height:1.8;">The Collective is the community for escapees who are serious about building a life-first business. Peers who get it. Accountability that actually works. Education covering everything that matters — not just tactics.</p>
         <div class="pillars">
           <div class="pillar">
-            <span class="pillar-icon">🤝</span>
+            
             <div class="pillar-name">Peer Groups</div>
             <p class="pillar-desc">Cohorts matched to where you are — Just Starting or Already Scaling.</p>
           </div>
           <div class="pillar">
-            <span class="pillar-icon">📚</span>
+            
             <div class="pillar-name">Education</div>
             <p class="pillar-desc">Monthly sessions across all 5Fs — the full picture, not just tactics.</p>
           </div>
           <div class="pillar">
-            <span class="pillar-icon">🎙️</span>
+            
             <div class="pillar-name">Guest Sessions</div>
             <p class="pillar-desc">Monthly experts on what it really takes to build a life-first business.</p>
           </div>
           <div class="pillar">
-            <span class="pillar-icon">🐬</span>
+            
             <div class="pillar-name">Your Pod</div>
             <p class="pillar-desc">The people who've made the leap and are figuring it out right alongside you.</p>
           </div>
@@ -500,11 +522,11 @@ footer { background: var(--dark-navy); padding: 60px 2rem 36px; border-top: 3px 
           </div>
           <p class="price-sub" style="font-weight:600;color:var(--orange);">First month just $1 · Cancel anytime</p>
           <div class="cta-features">
-            <div class="cta-feat"><div class="check">✓</div>Two peer groups (Just Starting &amp; Scaling)</div>
-            <div class="cta-feat"><div class="check">✓</div>Monthly guest expert sessions</div>
-            <div class="cta-feat"><div class="check">✓</div>Full 5Fs curriculum and resource library</div>
-            <div class="cta-feat"><div class="check">✓</div>Direct access to Brett and the community</div>
-            <div class="cta-feat"><div class="check">✓</div>Private community on Circle</div>
+            <div class="cta-feat"><div class="check"></div>Two peer groups (Just Starting &amp; Scaling)</div>
+            <div class="cta-feat"><div class="check"></div>Monthly guest expert sessions</div>
+            <div class="cta-feat"><div class="check"></div>Full 5Fs curriculum and resource library</div>
+            <div class="cta-feat"><div class="check"></div>Direct access to Brett and the community</div>
+            <div class="cta-feat"><div class="check"></div>Private community on Circle</div>
           </div>
           <a href="https://www.theescapeecollective.com/" class="btn-primary" style="display:block;text-align:center;width:100%;" target="_blank">Join for $1 — First Month</a>
           <p class="cta-note">Start with the free newsletter, listen to a few episodes — then join when it clicks.</p>
@@ -523,18 +545,52 @@ footer { background: var(--dark-navy); padding: 60px 2rem 36px; border-top: 3px 
       <div class="why-quote">"I watched my dad give everything to a company that <span>discarded him</span> before he could enjoy it. That's not my story. And it doesn't have to be yours."</div>
       <p class="why-body">The Corporate Escapee started as a personal mission — to help people build a life they actually want before it's too late. Six years ago, I left corporate without a clear plan. What I discovered was that the skills, relationships, and experience I'd spent 20 years building were worth more on the open market than they ever paid me in a salary.</p>
       <p class="why-body">The problem was never the talent. It's the belief that there's another way. This community exists to close that gap — one escapee at a time.</p>
-      <div class="why-sig">Brett Trainor · Founder, The Corporate Escapee 🐬✌️</div>
+      <div class="why-sig">Brett Trainor · Founder, The Corporate Escapee </div>
     </div>
   </div>
 </section>
+
+<!-- SOCIAL BAR -->
+<div class="social-bar">
+  <div class="social-bar-inner fade-up">
+    <div class="social-bar-title">Follow the Journey</div>
+    <p class="social-bar-sub">Daily content on building freedom and control after corporate — on the platforms you're already on.</p>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/bretttrainor/" target="_blank" class="social-icon-link">
+        <div class="social-icon-box linkedin">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </div>
+        <span class="social-icon-label">LinkedIn</span>
+      </a>
+      <a href="https://tiktok.com/@the_corporate_escapee" target="_blank" class="social-icon-link">
+        <div class="social-icon-box tiktok">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.77 1.52V6.75a4.85 4.85 0 01-1-.06z"/>
+          </svg>
+        </div>
+        <span class="social-icon-label">TikTok</span>
+      </a>
+      <a href="https://www.youtube.com/@BrettTrainor" target="_blank" class="social-icon-link">
+        <div class="social-icon-box youtube">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </div>
+        <span class="social-icon-label">YouTube</span>
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div>
       <div class="footer-brand-name">The Corporate Escapee</div>
-      <span class="footer-brand-tag">Get Busy Living ✌️</span>
-      <p class="footer-brand-desc">A movement for mid-career professionals done waiting for permission. Find your path to freedom — and the people to walk it with.</p>
+      <span class="footer-brand-tag">Get Busy Living</span>
+      <p class="footer-brand-desc">A movement for ex-corporate professionals ready to take control and build a life they actually want.</p>
     </div>
     <div>
       <div class="footer-col-title">Ecosystem</div>
@@ -566,7 +622,7 @@ footer { background: var(--dark-navy); padding: 60px 2rem 36px; border-top: 3px 
   </div>
   <div class="footer-bottom">
     <span class="footer-copy">© 2026 The Corporate Escapee · <a href="mailto:BT@BrettTrainor.com">BT@BrettTrainor.com</a></span>
-    <span style="font-size:20px;">🐬✌️</span>
+    <span style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:12px;color:rgba(255,255,255,0.25);letter-spacing:0.06em;text-transform:uppercase;">Get Busy Living</span>
   </div>
 </footer>
 
